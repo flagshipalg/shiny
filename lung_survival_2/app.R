@@ -1,13 +1,13 @@
 library(survival)
 library(survminer)
 require("survival")
+library(shiny)
+
 cancer = read.csv("d:/yd/data/lung cancer.csv")
 cancer1 = mutate(cancer, MATH_group=ifelse(cancer$MATH>50, "high","low"))
-
-
 vars <- names(cancer1)
 
-library(shiny)
+
 ui <- pageWithSidebar(
   headerPanel("Survival Curve"),
   sidebarPanel(
